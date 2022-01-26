@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<p> Hello you are on the {{page}} page. </p>
+
+{% if number > 10 %}
+<p> Number is greater than 10 </p>
+{% elif number == 10 %}
+<p> Number is equal to 10 </p>
+{% else %}
+<p> Number is less than 10 </p>
+{% endif %}
+
+<hr> 
+
+<h1> Projects </h1>
+
+<u1> 
+    {% for project in projects %}
+        <li> Title: <a href="{% url 'project' project.id %}"> {{project.title}} </a> --- {{project.description}} </li>
+    {% endfor %}
+</u1> 
+
+<h1> Projects Template </h1>
+<p>要说框架的话，我们先举例一下 BFS 出现的常见场景好吧，问题的本质就是让你在一幅「图」中找到从起点start到终点target的最近距离，这个例子听起来很枯燥，但是 BFS 算法问题其实都是在干这个事儿。
+
+把枯燥的本质搞清楚了，再去欣赏各种问题的包装才能胸有成竹嘛。
+
+这个广义的描述可以有各种变体，比如走迷宫，有的格子是围墙不能走，从起点到终点的最短距离是多少？如果这个迷宫带「传送门」可以瞬间传送呢？
+
+再比如说两个单词，要求你通过某些替换，把其中一个变成另一个，每次只能替换一个字符，最少要替换几次？
+
+再比如说连连看游戏，两个方块消除的条件不仅仅是图案相同，还得保证两个方块之间的最短连线不能多于两个拐点。你玩连连看，点击两个坐标，游戏是如何判断它俩的最短连线有几个拐点的？
+
+再比如……
+
+净整些花里胡哨的，这些问题都没啥奇技淫巧，本质上就是一幅「图」，让你从一个起点，走到终点，问最短路径。这就是 BFS 的本质，框架搞清楚了直接默写就好。
+</p>
+
+{% endblock content %}
+
+
+
